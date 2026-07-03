@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Data Extractor & Printer",
+  "version": "1.3",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://putrahis.hsaas.upm.edu.my/*",
+    "https://putrahis.hsaas.upm.edu.my/*",
+    "http://localhost/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://putrahis.hsaas.upm.edu.my/*",
+        "https://putrahis.hsaas.upm.edu.my/*",
+        "http://localhost/*"
+      ], 
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["logo.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
